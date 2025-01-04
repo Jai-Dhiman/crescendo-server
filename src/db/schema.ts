@@ -59,7 +59,6 @@ export const pieces = pgTable("piece", {
   title: text("title").notNull(),
   s3Key: text("s3_key").notNull(),
   cdnUrl: text("cdn_url").notNull(),
-  pdfUrl: text("pdf_url").notNull(),
   userId: text("user_id")
     .notNull()
     .references(() => user.id, { onDelete: "cascade" }),
