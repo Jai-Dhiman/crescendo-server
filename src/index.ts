@@ -4,7 +4,7 @@ import { logger } from "hono/logger";
 import { auth } from "./lib/auth";
 import { prettyJSON } from "hono/pretty-json";
 import { healthCheck } from "./routes/health";
-import pieces from "./routes/pieces";
+import piecesRouter from "./routes/pieces";
 
 const app = new Hono();
 
@@ -26,7 +26,7 @@ app.use("*", logger());
 app.use("*", prettyJSON());
 
 app.get("/health", healthCheck);
-app.route("/api/pieces", pieces);
+app.route("/api/pieces", piecesRouter);
 
 export default {
   port: process.env.PORT || 3000,
